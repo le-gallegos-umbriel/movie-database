@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--    font-->
+    <link href="https://fonts.googleapis.com/css2?family=Abel&family=Press+Start+2P&family=Tapestry&display=swap" rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- JQuery CDN 3.6 -->
@@ -14,7 +16,7 @@
 
 <div>
 <!--    Header-->
-    <nav class="navberry navbar mb-3">
+    <nav class="navberry navbar mb-1">
         <div class="container-fluid">
             <p class="welomer navbar-brand" id = "welcomer">Movie Project</p>
         </div>
@@ -22,10 +24,20 @@
 </div>
 <!--Header-->
 
-<div class="container">
+
+<nav class="navbar navbar-dark bg-dark justify-content-between">
+    <a class="navbar-brand">Navbar</a>
+    <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+</nav>
+
+<!--navbar-->
+<div class="container d-flex p-2">
     <div class="row">
-        <div class="card col-8" style="width: 18rem;" id="movieDisplay"></div>
-        <div class="col-4" id="modify">
+        <div class="card col-10 d-flex flex-row flex-wrap" style="width: 18rem;" id="movieDisplay"></div>
+        <div class="col-2" id="modify">
             <form>
                 <label for="title">Title</label>
                 <input type="text" id="title">
@@ -33,7 +45,7 @@
                 <input type="text" id="rating">
                 <label for="genre">Genre</label>
                 <input type="text" id ="genre">
-                <input class="" type="text" id="id" disabled>
+                <input class="invisible" type="text" id="id" disabled>
                 <button id="submit" type="submit"> Add </button>
                 <button id="editrightside" type="submit"> Submit edit </button>
             </form>

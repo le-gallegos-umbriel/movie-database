@@ -1,7 +1,12 @@
 #welcomer{
-    -webkit-text-fill-color: yellow;
-    -webkit-text-stroke-color: red;
-    -webkit-text-stroke-width: 3px;
-    font-size: 80px;
+    font-family: 'Press Start 2P', cursive;
+    -webkit-text-fill-color: black;
+    -webkit-text-stroke-color: mediumpurple;
+    -webkit-text-stroke-width: 4px;
+    font-size: 50px;
     margin: auto;
+}
+
+#movieDisplay {
+    font-size: 20px;
 }
