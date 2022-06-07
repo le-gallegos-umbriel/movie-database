@@ -1,0 +1,7 @@
+#welcomer{
+    -webkit-text-fill-color: yellow;
+    -webkit-text-stroke-color: red;
+    -webkit-text-stroke-width: 3px;
+    font-size: 80px;
+    margin: auto;
+}

@@ -11,20 +11,33 @@
     <title>Movie Database</title>
 </head>
 <body>
+
+<div>
+<!--    Header-->
+    <nav class="navberry navbar mb-3">
+        <div class="container-fluid">
+            <p class="welomer navbar-brand" id = "welcomer">Movie Project</p>
+        </div>
+    </nav>
+</div>
+<!--Header-->
+
 <div class="container">
     <div class="row">
-        <div class="col-8" id="movieDisplay"></div>
+        <div class="card col-8" style="width: 18rem;" id="movieDisplay"></div>
         <div class="col-4" id="modify">
             <form>
                 <label for="title">Title</label>
                 <input type="text" id="title">
                 <label for="rating">Rating</label>
                 <input type="text" id="rating">
+                <label for="genre">Genre</label>
+                <input type="text" id ="genre">
                 <button id="submit" type="submit"> Submit </button>
             </form>
         </div>
 
-        //end of main row
+<!--        //end of main row-->
     </div>
 </div>
 
