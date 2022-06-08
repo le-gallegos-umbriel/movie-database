@@ -7,6 +7,15 @@
     margin: auto;
 }
 
+#navtext {
+    font-family: 'Press Start 2P', cursive;
+    -webkit-text-fill-color: black;
+    -webkit-text-stroke-color: red;
+    -webkit-text-stroke-width: 1px;
+    font-size: 25px;
+    margin: auto;
+}
+
 #movieDisplay {
     font-size: 20px;
 }
@@ -24,10 +33,40 @@
 
 img{
     object-fit: contain;
-    background-color: gray();
+    background-color: black;
 }
 
 .navberry {
     background-image: url(../img/studiogibli.jpeg);
+    /*background: stretch;*/
 }
 
+body {
+    background-image: url(../img/bigredbg.jpg);
+    background-size: cover;
+}
+
+.card {
+    height: 679px;
+}
+
+/*.cardbtns {*/
+/*    align-self: end;*/
+/*    flex-flow: wrap;*/
+
+/*}*/
+
+/*.cardbrdr {*/
+/*    border-radius: 5px;*/
+/*}*/
+
+#title {
+    /*border-radius: ;*/
+}
+
+.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    width: 250px;
+}

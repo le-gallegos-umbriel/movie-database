@@ -21,7 +21,7 @@ function returnMoviePromise(movieLink){
     const URL = 'https://innate-dent-tadpole.glitch.me/movies';
     function refreshMovies () {
         fetch(URL).then(res => {
-            document.getElementById("movieDisplay").innerHTML = ("Loading...");
+            document.getElementById("movieDisplay").innerHTML = ("<img src= img/loading_gif.gif>");
             return res.json()
         })
             .then(movies => {
@@ -63,26 +63,25 @@ function patchMovieLinks(){
         let html = "";
 
         html += `
-<div class="col-5 mb-2">
+<div class="cardbrdr col-5 mb-2">
 <div class="card bg-dark" style="">
 <img src="${movieName.poster}" height="300" alt="noimagelink">
   <div class="card-header text-light">
-     <h1>Title: ${movieName.title}</h1>
+     <h2>Title: ${movieName.title}</h2>
   </div>
     <ul class="list-group list-group-flush bg-dark">
     <li class="list-group-item bg-dark text-light">
-    <h3> Rating: ${movieName.rating}</h3>
+    <h4> Rating: ${movieName.rating}</h4>
     </li>
     <li class="list-group-item bg-dark text-light">
-    <h3>ID: ${movieName.id}</h3>
+    <h4>ID: ${movieName.id}</h4>
     </li>
         <li class="list-group-item bg-dark text-light">
-    <h3>Genre: ${movieName.genre}</h3>
+    <h4>Genre: ${movieName.genre}</h4>
     </li>
-
     </ul>
-    <button class="delete btn btn-danger" data-id="${movieName.id}"> delete </button>
-    <button class="edit mt-2 btn btn-success" data-id="${movieName.id}"> edit </button>
+    <button class="delete btn btn-danger m-auto" style="width: 100px" data-id="${movieName.id}"> delete </button>
+    <button class="edit mt-2 btn btn-success m-auto"  style="width: 100px; data-id="${movieName.id}"> edit </button>
 </div>
 </div> `;  //end div col
 
@@ -277,6 +276,53 @@ function patchMovieLinks(){
             .catch(/* handle errors */);
 
     }
+
+
+    $('#searchbtn').click(function (e) {
+        e.preventDefault();
+        const searchinput = document.getElementById('searchinput').value;
+        console.log(searchinput);
+        fetch(URL).then(res => {
+            document.getElementById("movieDisplay").innerHTML = ("Loading...");
+            return res.json()
+        })
+            .then(movies => {
+                document.getElementById("movieDisplay").innerHTML = ("");
+                console.log(movies);
+                movies.forEach((movie) => {
+                    if (movie.title === searchinput)
+                    {
+                        getImageLink(returnMoviePromise(returnMovieURL(movie.title))).then(link => movie.poster = link).then(() => document.getElementById("movieDisplay")
+                            .innerHTML += enterMovie(movie)).then(result => {
+                            $('.delete').each(function () {
+                                $(this).click(function () {
+                                    const movieNumber = $(this).attr("data-id");
+                                    console.log(parseInt(movieNumber));
+                                    deleteMovie(movieNumber);
+
+                                });
+                            });
+                            $('.edit').each(function () {
+                                $(this).click(function () {
+                                    const movieNumber = $(this).attr("data-id");
+                                    editMovie(movieNumber);
+
+                                });
+
+                            });
+                        })
+                    }
+                });
+
+            });
+    })
+
+
+    ////refresh button///
+    $('#refreshbtn').click(function (e) {
+        e.preventDefault();
+        refreshMovies();
+    });
 
 ////// end of jquery
 });

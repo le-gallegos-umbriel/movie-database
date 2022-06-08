@@ -26,10 +26,12 @@
 
 
 <nav class="navbar navbar-dark bg-dark justify-content-between rounded">
-    <a class="navbar-brand px-5 rounded">I'm gonna put something here idk what</a>
-    <form class="form-inline px-5 rounded">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Search</button>
+    <a class="navbar-brand px-5 rounded" id="navtext">Great Value Crunchyroll</a>
+    <form class="form-inline px-5 rounded mt-1 mb-1">
+        <input class="form-control mr-sm-2 border border-danger" id="searchinput" type="search" placeholder="Search" aria-label="Search">
+        <br>
+        <button class="btn btn-outline-danger my-2 my-sm-0" id="searchbtn" type="submit">Search</button>
+        <button class="btn btn-outline-primary my-2 my-sm-0" id="refreshbtn" type="button">Refresh</button>
     </form>
 </nav>
 
@@ -40,17 +42,17 @@
 <div class="container ">
     <div class="row mt-4">
         <div class="col-10 row"  id="movieDisplay"></div>
-        <div class="col-2 d-flex" id="modify">
-            <form class="wrap float-right bg-dark px-4 auto rounded">
-                <label class="text-light mt-3 for="title">Title</label>
-                <input class ="rounded" type="text" id="title">
+        <div class="col-2" id="modify">
+            <form class="wrap bg-dark px-4 rounded sticky" id="f1">
+                <label class="text-light mt-3" for="title">Title</label>
+                <input class ="rounded border border-danger" type="text" id="title">
                 <label class="text-light" for="rating">Rating</label>
-                <input class ="rounded" type="text" id="rating">
+                <input class ="rounded border border-danger" type="text" id="rating">
                 <label class="text-light" for="genre">Genre</label>
-                <input class ="rounded" type="text" id ="genre">
+                <input class ="rounded border border-danger" type="text" id ="genre">
                 <input class="invisible" type="text" id="id" disabled>
-                <button class ="rounded" id="submit" type="submit"> Add </button>
-                <button class ="rounded " id="editrightside" type="submit"> Submit edit </button>
+                <button class ="rounded btn btn-outline-danger mb-4" id="submit" type="submit"> Add </button>
+                <button class ="rounded btn btn-outline-success mb-4" id="editrightside" type="submit"> Submit edit </button>
             </form>
         </div>
 
