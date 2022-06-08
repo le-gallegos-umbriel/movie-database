@@ -38,7 +38,13 @@ img{
 
 .navberry {
     background-image: url(../img/studiogibli.jpeg);
-    /*background: stretch;*/
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+}
+
+.navberry img {
+    opacity: 0.5;
 }
 
 body {
@@ -50,15 +56,6 @@ body {
     height: 679px;
 }
 
-/*.cardbtns {*/
-/*    align-self: end;*/
-/*    flex-flow: wrap;*/
-
-/*}*/
-
-/*.cardbrdr {*/
-/*    border-radius: 5px;*/
-/*}*/
 
 #title {
     /*border-radius: ;*/

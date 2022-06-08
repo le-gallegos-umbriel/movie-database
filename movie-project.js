@@ -81,7 +81,7 @@ function patchMovieLinks(){
     </li>
     </ul>
     <button class="delete btn btn-danger m-auto" style="width: 100px" data-id="${movieName.id}"> delete </button>
-    <button class="edit mt-2 btn btn-success m-auto"  style="width: 100px; data-id="${movieName.id}"> edit </button>
+    <button class="edit mt-2 btn btn-success m-auto"  style="width: 100px;" data-id="${movieName.id}"> edit </button>
 </div>
 </div> `;  //end div col
 
@@ -126,7 +126,7 @@ function patchMovieLinks(){
         })
             .catch(/* handle errors */);
     }
-// editMovie(274);
+// editMovie();
 
 //// delete movie ////
 
