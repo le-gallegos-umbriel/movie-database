@@ -16,20 +16,20 @@
 
 <div>
 <!--    Header-->
-    <nav class="navberry navbar mb-1">
-        <div class="container-fluid">
-            <p class="welomer navbar-brand" id = "welcomer">Movie Project</p>
+    <nav class="navberry navbar m-0">
+        <div class="container-fluid mb-5">
+            <p class="welomer navbar-brand mb-5 mt-5" id ="welcomer">Movie Project</p>
         </div>
     </nav>
 </div>
 <!--Header-->
 
 
-<nav class="navbar navbar-dark bg-dark justify-content-between">
-    <a class="navbar-brand px-4">I'm gonna put something here idk what</a>
-    <form class="form-inline px-4">
+<nav class="navbar navbar-dark bg-dark justify-content-between rounded">
+    <a class="navbar-brand px-5 rounded">I'm gonna put something here idk what</a>
+    <form class="form-inline px-5 rounded">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Search</button>
     </form>
 </nav>
 
@@ -41,16 +41,16 @@
     <div class="row mt-4">
         <div class="col-10 row"  id="movieDisplay"></div>
         <div class="col-2 d-flex" id="modify">
-            <form class="wrap float-right">
-                <label for="title">Title</label>
-                <input type="text" id="title">
-                <label for="rating">Rating</label>
-                <input type="text" id="rating">
-                <label for="genre">Genre</label>
-                <input type="text" id ="genre">
+            <form class="wrap float-right bg-dark px-4 auto rounded">
+                <label class="text-light mt-3 for="title">Title</label>
+                <input class ="rounded" type="text" id="title">
+                <label class="text-light" for="rating">Rating</label>
+                <input class ="rounded" type="text" id="rating">
+                <label class="text-light" for="genre">Genre</label>
+                <input class ="rounded" type="text" id ="genre">
                 <input class="invisible" type="text" id="id" disabled>
-                <button id="submit" type="submit"> Add </button>
-                <button id="editrightside" type="submit"> Submit edit </button>
+                <button class ="rounded" id="submit" type="submit"> Add </button>
+                <button class ="rounded " id="editrightside" type="submit"> Submit edit </button>
             </form>
         </div>
 

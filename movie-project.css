@@ -1,9 +1,9 @@
 #welcomer{
     font-family: 'Press Start 2P', cursive;
     -webkit-text-fill-color: black;
-    -webkit-text-stroke-color: mediumpurple;
+    -webkit-text-stroke-color: red;
     -webkit-text-stroke-width: 4px;
-    font-size: 50px;
+    font-size: 70px;
     margin: auto;
 }
 
@@ -25,5 +25,9 @@
 img{
     object-fit: contain;
     background-color: gray();
+}
+
+.navberry {
+    background-image: url(../img/studiogibli.jpeg);
 }
 

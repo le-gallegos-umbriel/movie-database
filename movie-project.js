@@ -18,68 +18,39 @@ function returnMoviePromise(movieLink){
     }
 
 
-    console.log(getImageLink(returnMoviePromise(returnMovieURL("spirited away"))).then(res => console.log(res)));
-
     const URL = 'https://innate-dent-tadpole.glitch.me/movies';
-function refreshMovies () {
-    fetch(URL).then(res => {
-        document.getElementById("movieDisplay").innerHTML = ("Loading...");
-        return res.json()
-    })
-        .then(movies => {
-            document.getElementById("movieDisplay").innerHTML = ("");
-            console.log(movies);
-            movies.map((movie) => {
-                document.getElementById("movieDisplay")
-                    .innerHTML += enterMovie(movie);
-            })
-        }).then(result => {
-        $('.delete').each(function () {
-            $(this).click(function () {
-                const movieNumber = $(this).attr("data-id");
-                console.log(parseInt(movieNumber));
-                deleteMovie(movieNumber);
+    function refreshMovies () {
+        fetch(URL).then(res => {
+            document.getElementById("movieDisplay").innerHTML = ("Loading...");
+            return res.json()
+        })
+            .then(movies => {
+                document.getElementById("movieDisplay").innerHTML = ("");
+                console.log(movies);
+                movies.forEach((movie) => {
+                    getImageLink(returnMoviePromise(returnMovieURL(movie.title))).then(link => movie.poster = link).then(() => document.getElementById("movieDisplay")
+                        .innerHTML += enterMovie(movie)).then(result => {
+                        $('.delete').each(function () {
+                            $(this).click(function () {
+                                const movieNumber = $(this).attr("data-id");
+                                console.log(parseInt(movieNumber));
+                                deleteMovie(movieNumber);
+
+                            });
+                        });
+                        $('.edit').each(function () {
+                            $(this).click(function () {
+                                const movieNumber = $(this).attr("data-id");
+                                editMovie(movieNumber);
+
+                            });
+
+                        });
+                    })
+                })
 
             });
-        });
-        $('.edit').each(function () {
-            $(this).click(function () {
-                const movieNumber = $(this).attr("data-id");
-                editMovie(movieNumber);
-                // const movieNumber = $(this).attr("data-id");
-                // let title;
-                // let rating;
-                // let genre;
-                // if ($('#title').val() === "") {
-                //     title = "N/A";
-                // } else {
-                //     title = $('#title').val();
-                // }
-                // if ($('#rating').val() === "") {
-                //     rating = "N/A";
-                // } else {
-                //     rating = $('#rating').val();
-                // }
-                // if ($('#genre').val() === "") {
-                //     genre = "N/A";
-                // } else {
-                //     genre = $('#genre').val();
-                // }
-                // const newMovieObj =
-                //     {
-                //         title: title,
-                //         rating: rating,
-                //         genre: genre
-                //     }
-                // console.log(parseInt(movieNumber));
-                // editMovie(newMovieObj, movieNumber);
-
-            });
-
-        });
-
-    });
-}
+    }
     refreshMovies();
 
 function patchMovieLinks(){
@@ -252,6 +223,7 @@ function patchMovieLinks(){
             }
         console.log(newMovieObj);
         postMovie(newMovieObj);
+        refreshMovies(newMovieObj)
     });
 
     //submit edit
