@@ -1,8 +1,26 @@
 "use strict";
 $(document).ready(function () {
 
+const MOVIE_URL = `http://www.omdbapi.com/?t=&apikey=73698e9a`;
 
-const URL = 'https://innate-dent-tadpole.glitch.me/movies';
+function returnMovieURL(str){
+    return `http://www.omdbapi.com/?t=${str}&apikey=73698e9a`
+}
+
+function returnMoviePromise(movieLink){
+    return fetch(movieLink);
+}
+
+    // console.log(returnMovieURL(''));
+
+    function getImageLink(promise){
+        return promise.then(res => res.json()).then(finale => (finale.Poster));
+    }
+
+
+    console.log(getImageLink(returnMoviePromise(returnMovieURL("spirited away"))).then(res => console.log(res)));
+
+    const URL = 'https://innate-dent-tadpole.glitch.me/movies';
 function refreshMovies () {
     fetch(URL).then(res => {
         document.getElementById("movieDisplay").innerHTML = ("Loading...");
@@ -64,29 +82,39 @@ function refreshMovies () {
 }
     refreshMovies();
 
+function patchMovieLinks(){
+    $
+}
+
 //write a function that displays the title and rating on HTML
 
     function enterMovie(movieName) {
         let html = "";
-        html += `<div>
-  <div class="card-header">
+
+        html += `
+<div class="col-5 mb-2">
+<div class="card bg-dark" style="">
+<img src="${movieName.poster}" height="300" alt="noimagelink">
+  <div class="card-header text-light">
      <h1>Title: ${movieName.title}</h1>
   </div>
-    <ul class="list-group list-group-flush">
-    <li class="list-group-item">
+    <ul class="list-group list-group-flush bg-dark">
+    <li class="list-group-item bg-dark text-light">
     <h3> Rating: ${movieName.rating}</h3>
     </li>
-    <li class="list-group-item">
+    <li class="list-group-item bg-dark text-light">
     <h3>ID: ${movieName.id}</h3>
     </li>
-        <li class="list-group-item">
+        <li class="list-group-item bg-dark text-light">
     <h3>Genre: ${movieName.genre}</h3>
     </li>
-   
+
     </ul>
-    <button class="delete" data-id="${movieName.id}"> delete </button>
-    <button class="edit" data-id="${movieName.id}"> edit </button>
-</div>`;
+    <button class="delete btn btn-danger" data-id="${movieName.id}"> delete </button>
+    <button class="edit mt-2 btn btn-success" data-id="${movieName.id}"> edit </button>
+</div>
+</div> `;  //end div col
+
         return html;
     }
 
@@ -158,6 +186,21 @@ function refreshMovies () {
             .then(console.log("You're movie was successfully edited!"))
             .catch(/* handle errors */);
     }
+
+    function editBackgroundSubmit(movieObj, num) {
+        const url = `${URL}/${num}`;
+        const options = {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(movieObj),
+        };
+        fetch(url, options)
+            .then(console.log("You're movie was successfully edited!"))
+            .catch(/* handle errors */);
+    }
+
 
 /// enter movie to URL ///
 ///edit submit button /////

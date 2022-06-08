@@ -10,3 +10,20 @@
 #movieDisplay {
     font-size: 20px;
 }
+
+.btn-danger {
+    background-color: firebrick; !important;
+    font-size: 15px; !important;
+}
+
+.btn-success {
+    background-color: green; !important;
+    color: whitesmoke;
+    font-size: 15px; !important;
+}
+
+img{
+    object-fit: contain;
+    background-color: gray();
+}
+
