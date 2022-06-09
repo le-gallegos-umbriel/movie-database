@@ -35,33 +35,25 @@ function returnMoviePromise(movieLink){
                                 const movieNumber = $(this).attr("data-id");
                                 console.log(parseInt(movieNumber));
                                 deleteMovie(movieNumber);
-
                             });
                         });
                         $('.edit').each(function () {
                             $(this).click(function () {
                                 const movieNumber = $(this).attr("data-id");
                                 editMovie(movieNumber);
-
                             });
-
                         });
-                    })
-                })
-
+                    });
+                });
             });
     }
     refreshMovies();
 
-function patchMovieLinks(){
-    $
-}
 
 //write a function that displays the title and rating on HTML
 
     function enterMovie(movieName) {
         let html = "";
-
         html += `
 <div class="cardbrdr col-5 mb-2">
 <div class="card bg-dark" style="">
@@ -90,7 +82,6 @@ function patchMovieLinks(){
 
 //// edit movie ////
     function editMovie(num) {
-        // fetch(`${URL}/${num}`).then(res => res.json());
         const url = `${URL}/${num}`;
         console.log(url)
         const options = {
@@ -126,7 +117,6 @@ function patchMovieLinks(){
         })
             .catch(/* handle errors */);
     }
-// editMovie();
 
 //// delete movie ////
 
@@ -185,8 +175,8 @@ function patchMovieLinks(){
         };
         fetch(url, options)
             .then(console.log("You're movie was successfully entered!"))
+            .then(refreshMovies)
             .catch(/* handle errors */);
-
     }
 
     //////
@@ -222,7 +212,7 @@ function patchMovieLinks(){
             }
         console.log(newMovieObj);
         postMovie(newMovieObj);
-        refreshMovies(newMovieObj)
+        refreshMovies(newMovieObj);
     });
 
     //submit edit
@@ -274,7 +264,6 @@ function patchMovieLinks(){
             .then(console.log("Your edit has been processed."))
             .then (res => refreshMovies())
             .catch(/* handle errors */);
-
     }
 
 
@@ -299,23 +288,19 @@ function patchMovieLinks(){
                                     const movieNumber = $(this).attr("data-id");
                                     console.log(parseInt(movieNumber));
                                     deleteMovie(movieNumber);
-
                                 });
                             });
                             $('.edit').each(function () {
                                 $(this).click(function () {
                                     const movieNumber = $(this).attr("data-id");
                                     editMovie(movieNumber);
-
                                 });
-
                             });
-                        })
+                        });
                     }
                 });
-
             });
-    })
+    });
 
 
     ////refresh button///
